@@ -29,9 +29,9 @@ This function is used to get the position of a particular landmark on your hand 
 
 This module executes our main motive. This first detects the movement of hand. After that you need to pass the landmark number of index finger (8) and thumb (4) as specified by Google. It then calulates the distance between the index finger and thumb by using the hypot method of math module. Also you can calulate the mid point of the line joining these two, which changes it's color below a certain range. 
 
-Note - You need check the range of the length of line between the index finger and thumb before connecting the change of volume with length. 
+Note - You need to check the range of the length of line between the index finger and thumb before connecting the change of volume with length. 
 
-To implement the volume changes, you need import pycaw with the following initialisations - 
+To implement the change of volume, you need to import pycaw with the following initialisations - 
 
 ```python
 from ctypes import cast, POINTER
@@ -51,7 +51,7 @@ Now check the volume range by printing the GetVolumeRange to make the conversion
 
 To make the conversion use the interp method from numpy library, keeping in mind the ranges that you have got. 
 
-If you want to display the volume bar, you can do this by calling the rectangle method of opencv library and give the desired dimensions to it. 
+If you want to display the volume bar, you can do this by calling the rectangle method of opencv library and giving the desired dimensions to it. 
 
 
 Congrats you have made the project to change the volume using your hands!!
