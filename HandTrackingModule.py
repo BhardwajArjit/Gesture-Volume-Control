@@ -1,8 +1,6 @@
 import cv2
 import time
 import mediapipe as mp
-import math
-
 
 class HandDetector:
     def __init__(self, mode=False, maxHands=2, modelC=1, detectionCon=0.5, trackCon=0.5):
@@ -19,7 +17,6 @@ class HandDetector:
     def findHands(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.result = self.hands.process(imgRGB)
-        # print(result.multi_hand_landmarks)
 
         if self.result.multi_hand_landmarks:
             for handLand in self.result.multi_hand_landmarks:
@@ -61,7 +58,7 @@ def main():
         fps = 1 / (cTime - pTime)
         pTime = cTime
 
-        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
+        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_COMPLEX, 3, (255, 0, 0), 3)
 
         cv2.imshow("Webcam", img)
         cv2.waitKey(1)
