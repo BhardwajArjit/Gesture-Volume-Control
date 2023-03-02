@@ -3,15 +3,16 @@ import time
 import mediapipe as mp
 
 class HandDetector:
-    def __init__(self, mode=False, maxHands=2, modelC=1, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=2, modelConfidence=1, detectionConfidence=0.5, trackConfidence=0.5):
         self.mode = mode
         self.maxHands = maxHands
-        self.modelC = modelC
-        self.detectionCon = detectionCon
-        self.trackCon = trackCon
+        self.modelConfidence = modelConfidence
+        self.detectionConfidence = detectionConfidence
+        self.trackConfidence = trackConfidence
 
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands,self.modelC, self.detectionCon, self.trackCon)
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.modelConfidence,
+                                        self.detectionConfidence, self.trackConfidence)
         self.mpDraw = mp.solutions.drawing_utils
 
     def findHands(self, img, draw=True):
@@ -30,8 +31,8 @@ class HandDetector:
         if self.result.multi_hand_landmarks:
             myHand = self.result.multi_hand_landmarks[handNo]
             for id, lm in enumerate(myHand.landmark):
-                h, w, c = img.shape
-                cx, cy = int(lm.x * w), int(lm.y * h)
+                height, width, c = img.shape
+                cx, cy = int(lm.x * width), int(lm.y * height)
                 PosList.append([id, cx, cy])
 
                 if draw:
@@ -41,8 +42,8 @@ class HandDetector:
 
 
 def main():
-    pTime = 0
-    cTime = 0
+    prevTime = 0
+    currentTime = 0
     cap = cv2.VideoCapture(0)
     detector = HandDetector()
 
@@ -54,11 +55,11 @@ def main():
         if len(PosList) != 0:
             print(PosList[4])
 
-        cTime = time.time()
-        fps = 1 / (cTime - pTime)
-        pTime = cTime
+        currentTime = time.time()
+        fps = 1 / (currentTime - prevTime)
+        pTime = currentTime
 
-        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_COMPLEX, 3, (255, 0, 0), 3)
+        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
 
         cv2.imshow("Webcam", img)
         cv2.waitKey(1)

@@ -7,14 +7,14 @@ from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
-wCam, hCam = 1280, 720
+widthCam, heightCam = 1280, 720
 
 cap = cv.VideoCapture(0)
-cap.set(3, wCam)
-cap.set(4, hCam)
-pTime = 0
+cap.set(3, widthCam)
+cap.set(4, heightCam)
+prevTime = 0
 
-detector = htm.HandDetector(detectionCon=0.7)
+detector = htm.HandDetector(detectionConfidence=0.7)
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
@@ -64,9 +64,9 @@ while True:
         cv.putText(img, f'{int(volPer)}%', (40, 450), cv.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
 
 
-    cTime = time.time()
-    fps = 1/(cTime - pTime)
-    pTime = cTime
+    currentTime = time.time()
+    fps = 1/(currentTime - prevTime)
+    pTime = currentTime
 
     cv.putText(img, f'FPS: {int(fps)}', (40, 50), cv.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
 
