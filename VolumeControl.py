@@ -71,4 +71,11 @@ while True:
     cv.putText(img, f'FPS: {int(fps)}', (40, 50), cv.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
 
     cv.imshow('img', img)
-    cv.waitKey(1)
+    # cv.waitKey(1)
+
+    # Hit 'q' to quit the window
+    if cv.waitKey(1) & 0xff == ord('q'):
+        break
+
+cap.release()
+cv.destroyAllWindows()

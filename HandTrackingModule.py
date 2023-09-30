@@ -62,7 +62,13 @@ def main():
         cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
 
         cv2.imshow("Webcam", img)
-        cv2.waitKey(1)
+        # cv2.waitKey(1)
+        
+        if cv2.waitKey(1) & 0xff == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
