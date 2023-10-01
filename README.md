@@ -46,7 +46,7 @@ To display the volume bar on the screen, the `rectangle` method from the OpenCV 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/BhardwajArjit/gesture-volume-control.git
+   git clone https://github.com/BhardwajArjit/Gesture-Volume-Control.git
    ```
 
 2. Install the required libraries from the `requirements.txt` file:
