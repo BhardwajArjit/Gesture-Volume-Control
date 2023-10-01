@@ -1,10 +1,12 @@
 # Gesture Volume Control using Hand Gestures
 
-Gesture Volume Control is an exciting project that allows you to change the volume of your system by using hand gestures. The project utilizes computer vision and audio control libraries to achieve this functionality. Here's an improved README file for the project:
+Gesture Volume Control is an exciting project that allows you to change the volume of your system by using hand gestures. The project utilizes computer vision and audio control libraries to achieve this functionality. With Gesture Volume Control, you can have a more interactive and intuitive way to manage audio levels on your system.
+
+![Gesture Volume Control GIF](https://github.com/BhardwajArjit/Gesture-Volume-Control/assets/109625851/8ff93da0-059a-4a4c-9f0e-1238de20e4e5)
 
 ## Overview
 
-Gesture Volume Control is a Python-based project that uses OpenCV and Mediapipe to track hand movements and recognize hand landmarks. By measuring the distance between the index finger and thumb, the project calculates the desired volume level and adjusts it accordingly using the pycaw library.
+Gesture Volume Control is a Python-based project that uses OpenCV and Mediapipe to track hand movements and recognize hand landmarks. By measuring the distance between the index finger and thumb, the project calculates the desired volume level and adjusts it accordingly using the pycaw library. This project provides a creative way to interact with your computer's audio system and showcases the potential of computer vision in real-world applications.
 
 ## Requirements
 
@@ -14,12 +16,6 @@ Before running the project, ensure you have the following libraries installed:
 - mediapipe 0.9.1.0
 - pycaw 20220416
 - comtypes (a dependency for pycaw)
-
-You can install these libraries using pip:
-
-```bash
-pip install opencv-contrib-python mediapipe pycaw comtypes
-```
 
 ## Modules
 
@@ -47,13 +43,29 @@ To display the volume bar on the screen, the `rectangle` method from the OpenCV 
 
 ## Setup and Execution
 
-1. Install the required libraries using the provided command.
-2. Import the necessary modules and functions into your main Python script.
-3. Initialize the hand tracking and volume control functionalities.
-4. Capture the video feed from the camera or use pre-recorded video.
-5. Continuously track the hand landmarks and calculate the distance between the index finger and thumb.
-6. Determine the desired volume level based on the calculated distance and apply the volume changes using pycaw.
-7. Display the volume bar on the screen to provide visual feedback to the user.
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/BhardwajArjit/gesture-volume-control.git
+   ```
+
+2. Install the required libraries from the `requirements.txt` file:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Import the necessary modules and functions into your main Python script.
+
+4. Initialize the hand tracking and volume control functionalities.
+
+5. Capture the video feed from the camera or use pre-recorded video.
+
+6. Continuously track the hand landmarks and calculate the distance between the index finger and thumb.
+
+7. Determine the desired volume level based on the calculated distance and apply the volume changes using pycaw.
+
+8. Display the volume bar on the screen to provide visual feedback to the user.
 
 ## Important Considerations
 
