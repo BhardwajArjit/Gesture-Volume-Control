@@ -73,6 +73,6 @@ To display the volume bar on the screen, the `rectangle` method from the OpenCV 
 - Calibrate the distance range between the index finger and thumb for volume control according to your preference and comfort.
 - Handle any exceptions or errors that may occur during the execution to provide a smooth user experience.
 
-## Conclusion
+## License
 
-Congratulations on creating the Gesture Volume Control project using hand gestures! This innovative project demonstrates the potential of computer vision and audio control libraries to create interactive and intuitive user experiences. Have fun experimenting with different hand gestures and volume control settings!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
